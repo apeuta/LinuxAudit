@@ -19,13 +19,13 @@ resource "azurerm_network_security_group" "auditSG" {
 
 #Create Rule to Allow RDP Inbound
 resource "azurerm_network_security_rule" "rdp" {
-  name                        = "rdp-access"
+  name                        = "SSH"
   priority                    = 200
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = "*"
+  destination_port_range      = "22"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = "${azurerm_resource_group.auditRG.name}"
